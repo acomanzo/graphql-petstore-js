@@ -1,4 +1,5 @@
 # API Module
+This is a repository demoing GraphQL with a node.js backend. 
 Click [here](https://petstore3.swagger.io/) for API details.
 ## Instructions
 1. Install node.js on your computer 
