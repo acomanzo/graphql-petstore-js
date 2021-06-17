@@ -4,10 +4,11 @@ Click [here](https://petstore3.swagger.io/) for API details.
 1. Install node.js on your computer 
 2. Clone the repo
 3. Navigate to project root
-4. Type `node src/index.js` in your terminal 
-5. Go to `localhost:4000`
+4. Install dependencies: `npm install`
+5. Type `node src/index.js` in your terminal 
+6. Go to `localhost:4000`
 ## Sample queries
-- findOrderById
+### findOrderById
 ```
 query {
   findOrderById(id: "order-1") {
@@ -15,13 +16,13 @@ query {
   }
 }
 ```
-- inventory
+### inventory
 ```
 query {
   inventory 
 }
 ```
-- findPetsByStatus
+### findPetsByStatus
 ```
 query {
   findPetsByStatus(status: AVAILABLE) {
@@ -29,7 +30,7 @@ query {
   }
 }
 ```
-- findPetsByTags
+### findPetsByTags
 ```
 query {
   findPetsByTags(tags: ["tag-1"]) {
@@ -37,7 +38,7 @@ query {
   }
 }
 ```
-- findPetById
+### findPetById
 ```
 query {
   findPetById(id: "pet-1") {
@@ -46,7 +47,7 @@ query {
   }
 }
 ```
-- login
+### login
 ```
 query {
   login(username: "acomanzo", password: "password") {
@@ -55,7 +56,7 @@ query {
   }
 }
 ```
-- logout
+### logout
 ```
 query {
   logout(id: "user-1") {
@@ -64,7 +65,7 @@ query {
   }
 }
 ```
-- findUserByUsername
+### findUserByUsername
 ```
 query {
   findUserByUsername(username: "acomanzo") {
@@ -74,7 +75,7 @@ query {
 }
 ```
 ## Sample mutations
-- createOrder
+### createOrder
 ```
 mutation {
   createOrder(petId: "pet-1", quantity: 1) {
@@ -87,7 +88,7 @@ mutation {
   }
 }
 ```
-- deleteOrder
+### deleteOrder
 ```
 mutation {
   deleteOrder(id: "order-2") {
@@ -95,7 +96,7 @@ mutation {
   }
 }
 ```
-- updatePet
+### updatePet
 ```
 mutation {
   updatePet(id: "pet-1", name: "Mr. Fluffy", category: "category-1", photoUrls: ["google.com", "twitter.com"], tags: ["tag-1"], status: AVAILABLE) {
@@ -105,7 +106,7 @@ mutation {
   }
 }
 ```
-- createPet
+### createPet
 ```
 mutation {
 	createPet(name: "Mr. Mittens", category: "category-1", photoUrls: ["google.com"], tags: ["tag-1"], status: AVAILABLE) {
@@ -124,7 +125,7 @@ mutation {
   }
 }
 ```
-- deletePet
+### deletePet
 ```
 mutation {
   deletePet(id: "pet-2") {
@@ -132,7 +133,7 @@ mutation {
   }
 }
 ```
-- addPetPhotos
+### addPetPhotos
 ```
 mutation {
   addPetPhotos(id: "pet-1", photoUrls: ["facebook.com"]) {
@@ -142,7 +143,7 @@ mutation {
   }
 }
 ```
-- createUser
+### createUser
 ```
 mutation {
   createUser(username: "acomanzo", firstName: "Tony", lastName: "Comanzo", email: "tcomanzo@jahnelgroup.com", password: "password", phone: "1232131321") {
@@ -157,7 +158,7 @@ mutation {
   }
 }
 ```
-- createUsers
+### createUsers
 ```
 mutation {
   createUsers(users: [["mcheung", "Matt", "Cheung", "mcheung@jahnelgroup.com", "password", "123213213"]]) {
@@ -166,7 +167,7 @@ mutation {
   }
 }
 ```
-- updateUser
+### updateUser
 ```
 mutation {
   updateUser(id: "user-1", username: "tcomanzo", firstName: "Tony", lastName: "Comanzo", email: "tcomanzo@jahnelgroup.com", password: "password", phone: "12323213") {
@@ -175,7 +176,7 @@ mutation {
   }
 }
 ```
-- deleteUser
+### deleteUser
 ```
 mutation {
   deleteUser(id: "user-2") {
@@ -184,7 +185,7 @@ mutation {
   }
 }
 ```
-- createCategory
+### createCategory
 ```
 mutation {
   createCategory(name: "Cat") {
@@ -193,7 +194,7 @@ mutation {
   }
 }
 ```
-- createTag
+### createTag
 ```
 mutation {
   createTag(name: "Cat") {
