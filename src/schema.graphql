@@ -1,0 +1,108 @@
+type Address {
+    street: String!
+    city: String! 
+    state: String!
+    zip: String!
+}
+
+type ApiResponse {
+    code: Int!
+    message: String!
+}
+
+type Category {
+    id: ID! 
+    name: String!
+}
+
+type Customer {
+    id: ID!
+    username: String!
+    address: Address!
+}
+
+enum OrderStatus {
+    PLACED
+    APPROVED 
+    DELIVERED
+}
+
+type Order {
+    id: ID!
+    petId: ID!
+    quantity: Int! 
+    shipDate: String! 
+    status: OrderStatus!
+    complete: Boolean!
+}
+
+enum PetStatus {
+    AVAILABLE
+    PENDING
+    SOLD
+}
+
+type Tag {
+    id: ID!
+    name: String!
+}
+
+type Pet {
+    id: ID!
+    name: String!
+    category: Category!
+    photoUrls: [String!]!
+    tags: [Tag!]!
+    status: PetStatus!
+}
+
+type User {
+    id: ID!
+    username: String!
+    firstName: String! 
+    lastName: String! 
+    email: String! 
+    password: String! 
+    phone: String! 
+    userStatus: Int!
+}
+
+type Query {
+    ################### ORDER ###################
+    findOrderById(id: ID!): Order!
+    inventory: [String!]
+
+    ################### PET ###################
+    findPetsByStatus(status: PetStatus!): [Pet!]!
+    findPetsByTags(tags: [ID!]!): [Pet!]!
+    findPetById(id: ID!): Pet!
+
+    ################### USER ###################
+    login(username: String!, password: String!): ApiResponse!
+    logout(id: ID!): ApiResponse!
+    findUserByUsername(username: String!): User!
+}
+
+type Mutation {
+    ################### ORDER ###################
+    createOrder(petId: ID!, quantity: Int!): Order!
+    deleteOrder(id: ID!): Order!
+
+    ################### PET ###################
+    updatePet(id: ID!, name: String!, category: ID!, photoUrls: [String!]!, tags: [ID!]!, status: PetStatus!): Pet!
+    createPet(name: String, category: ID!, photoUrls: [String!]!, tags: [ID!]!, status: PetStatus!): Pet!
+    deletePet(id: ID!): Pet! 
+    addPetPhotos(id: ID!, photoUrls: [String!]!): Pet!
+
+    ################### USER ###################
+    createUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!, phone: String!): User!
+    createUsers(users: [[String!]!]!): [User!]!
+    updateUser(id: ID!, username: String!, firstName: String!, lastName: String!, email: String!, password: String!, phone: String!): User!
+    deleteUser(id: ID!): User!
+
+    ################### CATEGORY ###################
+    createCategory(name: String!): Category!
+
+    ################### TAG ###################
+    createTag(name: String!): Tag!
+}
